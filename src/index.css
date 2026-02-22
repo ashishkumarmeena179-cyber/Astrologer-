@@ -1,0 +1,105 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ----------------------------------
+   GLOBAL STYLES (Cosmic Theme)
+---------------------------------- */
+
+:root {
+  --safe-area-top: env(safe-area-inset-top);
+  --safe-area-bottom: env(safe-area-inset-bottom);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #0f1025; /* Cosmic Dark */
+  color: #ffffff;
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  overscroll-behavior-y: none; /* Prevent pull-to-refresh on mobile */
+  touch-action: pan-y;
+}
+
+/* Hide scrollbar for PWA feel */
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* ----------------------------------
+   TYPOGRAPHY
+---------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel', serif; /* Mystical Serif Font */
+  letter-spacing: 0.05em;
+  font-weight: 600;
+}
+
+/* ----------------------------------
+   UTILITY CLASSES (Custom)
+---------------------------------- */
+
+@layer utilities {
+  .safe-top {
+    padding-top: var(--safe-area-top);
+  }
+  
+  .safe-bottom {
+    padding-bottom: var(--safe-area-bottom);
+  }
+
+  .glass-panel {
+    @apply bg-white/10 backdrop-blur-md border border-white/10 rounded-2xl shadow-glass;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-mystic-light to-accent-cyan;
+  }
+
+  .btn-primary {
+    @apply bg-mystic-gradient text-white font-semibold py-3 px-6 rounded-full shadow-lg active:scale-95 transition-transform duration-200 ease-out hover:shadow-neon;
+  }
+
+  .btn-outline {
+    @apply border-2 border-mystic-light text-mystic-light font-medium py-3 px-6 rounded-full active:bg-mystic-dark/20 transition-colors duration-200;
+  }
+
+  /* Smooth Reveal Animation Helper */
+  .reveal-enter {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  .reveal-enter-active {
+    opacity: 1;
+    transform: translateY(0);
+    transition: opacity 500ms, transform 500ms;
+  }
+}
+
+/* ----------------------------------
+   ANIMATION KEYFRAMES
+---------------------------------- */
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+@keyframes pulse-glow {
+  0% { box-shadow: 0 0 5px #8b5cf6; }
+  50% { box-shadow: 0 0 20px #8b5cf6, 0 0 10px #06b6d4; }
+  100% { box-shadow: 0 0 5px #8b5cf6; }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 3s infinite;
+}
