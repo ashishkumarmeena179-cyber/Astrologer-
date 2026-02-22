@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+
+# Disallow internal API routes if any exist in future
+Disallow: /api/
+
+# Cache control for PWA assets is handled by Service Worker
