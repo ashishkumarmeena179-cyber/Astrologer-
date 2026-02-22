@@ -1,0 +1,32 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="cosmic-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4c1d95;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f1025;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="4.5" result="coloredBlur"/>
+      <feMerge>
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Background Circle -->
+  <circle cx="256" cy="256" r="240" fill="url(#cosmic-grad)" stroke="#8b5cf6" stroke-width="8" />
+  
+  <!-- Glowing Hand Icon -->
+  <g filter="url(#glow)" transform="translate(106, 106) scale(0.6)">
+    <path d="M256 32C192 32 144 96 144 144V224C144 240 160 256 176 256C192 256 208 240 208 224V144C208 128 216 112 232 112C248 112 256 128 256 144V288C256 304 272 320 288 320C304 320 320 304 320 288V176C320 160 328 144 344 144C360 144 368 160 368 176V304C368 320 384 336 400 336C416 336 432 320 432 304V208C432 192 440 176 456 176C472 176 480 192 480 208V368C480 440 416 512 336 512H176C96 512 32 440 32 368V208C32 160 64 128 96 112" fill="none" stroke="#a78bfa" stroke-width="20" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Palm Lines -->
+    <path d="M160 300C200 320 250 320 300 280" stroke="#06b6d4" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.8"/>
+    <path d="M170 360C220 380 280 370 320 320" stroke="#ec4899" stroke-width="12" stroke-linecap="round" fill="none" opacity="0.8"/>
+  </g>
+  
+  <!-- Stars -->
+  <circle cx="100" cy="100" r="8" fill="#ffffff" filter="url(#glow)" />
+  <circle cx="400" cy="80" r="5" fill="#ffffff" filter="url(#glow)" />
+  <circle cx="450" cy="400" r="6" fill="#ffffff" filter="url(#glow)" />
+</svg>
